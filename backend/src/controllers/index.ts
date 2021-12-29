@@ -28,9 +28,10 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
   const user: any = await User.create({
-    username: req.body.username,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
+    address: req.body.address,
+    wallet: req.body.wallet
   })
   res.status(200).json({
     message: "User created",
@@ -65,9 +66,13 @@ export const updateUserById = async (req: Request, res: Response): Promise<void>
     const user: any = await User.findById(req.params.id)
 
     if(!isEmpty(user)) {
-      if(req.body.username) user.username = req.body.username
+      if(req.body.address) user.address = req.body.address
       if(req.body.password) user.password = req.body.password
+      if(req.body.username) user.username = req.body.username
       if(req.body.email) user.email = req.body.email
+      if(req.body.address) user.address = req.body.address
+
+      user.save();
 
       res.status(200).json({
         message: "User updated",
@@ -88,7 +93,6 @@ export const updateUserById = async (req: Request, res: Response): Promise<void>
 export const deleteUserById = async (req: Request, res: Response): Promise<void> => {
   try {
     await User.findByIdAndDelete(req.params.id)
-    // res.render("test", {data: "Delete OK"})
     res.status(200).json({
       message: "Delete OK",
     })
@@ -101,11 +105,11 @@ export const deleteUserById = async (req: Request, res: Response): Promise<void>
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
-    const user: any = await User.find({username: req.body.username, password: req.body.password}).exec();
+    const user: any = await User.findOne({email: req.body.email, password: req.body.password}).exec();
     if(!isEmpty(user)) {
       const session = encodeSession(process.env.JWT_SECRET_KEY, {
-        username: user.username,
-        id: user.id
+        email: user.email,
+        id: user._id
       });
 
       res.status(201).json(session);

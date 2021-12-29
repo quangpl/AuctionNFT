@@ -1,6 +1,6 @@
 export interface Session {
   id: string;
-  username: string;
+  email: string;
   /**
    * Timestamp indicating when the session was created, in Unix milliseconds.
    */
