@@ -1,0 +1,19 @@
+.register{
+    padding-top: 50px;
+}
+.ant-form-item-label > label{
+    color: white;
+}
+.ant-input{
+    border-radius: 30px;
+}
+.ant-btn-primary{
+    background-color: #ff343f;
+    border-radius: 30px;
+    border: none;
+    padding: 10px 30px;
+    padding-bottom: 30px;
+}
+.ant-btn-primary:hover{
+    background-color: #ff343f;
+}

@@ -1,0 +1,25 @@
+.login{
+    padding-top: 50px;
+    background-color: #212428;
+    
+}
+.form-login{
+    border: 1px solid #a2a2a2;
+}
+
+.login-form-forgot {
+float: right;
+}
+.ant-col-rtl .login-form-forgot {
+float: left;
+}
+ .login-form-button {
+width: 100%;
+border-radius: 10px;
+background-color: #ff343f;
+font-weight: 500;
+border: none;
+}
+.login-form-button:hover{
+    background-color: #ff343f;
+}

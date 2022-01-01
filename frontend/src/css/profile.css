@@ -1,0 +1,48 @@
+.ant-image-mask:hover {
+    opacity: 0;
+}
+.profile span{
+    color: #727272;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 250px;
+    font-size: 16px;
+}
+.profile h4{
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+.profile #btnCopy span{
+    font-size: 12px;
+}
+.profile #btnCopy{
+    padding: 4px,10px;
+    line-height: 1em;
+    height: 20px;
+    background: rgba(255, 255, 255, .3);
+    border: none;
+    color: white;
+    font-size: 12px;
+}
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab{
+    background: #212428;
+    color: rgba(255, 255, 255, .3);
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    background: #212428;
+    color: white;
+}
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab{
+    border: solid 1px rgba(255, 255, 255, .1);
+}
+.ant-tabs-top > .ant-tabs-nav::before{
+    border: none;
+}
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active{
+    border-bottom-color: rgba(255, 255, 255, .1);
+}
+.card-container{
+    width: 90%;
+    margin: auto;
+}
