@@ -76,7 +76,7 @@ class DetailsItem extends Component {
                     </div>
                   </Col>
                   <Col>
-                    <Button type="primary" danger size="large" style={{borderRadius:30, paddingLeft:20,paddingRight:20, fontSize:16, fontWeight:700}}>
+                    <Button type="primary" danger size="large" style={{borderRadius:30, paddingLeft:20,paddingRight:20,paddingBottom:40, fontSize:16, fontWeight:700}}>
                       Buy now
                     </Button>
                   </Col>

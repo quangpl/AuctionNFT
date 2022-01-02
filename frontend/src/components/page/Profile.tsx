@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, Divider, Row, Col, Button, Tabs } from "antd";
+import { Image, Divider, Row, Col, Button, Tabs, Card } from "antd";
 import "../../css/profile.css";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ const Profile = () => {
         orientation="center"
         style={{
           backgroundColor: "rgba(255, 255, 255, .01)",
-          padding: 90,
+         
           paddingBottom: 30,
           fontSize: 30,
           borderBottom: "solid 1px  rgba(255, 255, 255, .1)",
@@ -54,13 +54,397 @@ const Profile = () => {
       <div className="card-container">
         <Tabs defaultActiveKey="1" centered type="card">
           <TabPane tab="On Sale" key="1">
-            Content of Tab Pane 1
+            <div className="site-card-wrapper">
+              <Row equal-heights justify="center" gutter={[32, 24]}>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
           </TabPane>
           <TabPane tab="Owned" key="2">
-            Content of Tab Pane 2
+            <div className="site-card-wrapper">
+              <Row equal-heights justify="center" gutter={[32, 24]}>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
           </TabPane>
           <TabPane tab="Created" key="3">
-            Content of Tab Pane 3
+            <div className="site-card-wrapper">
+              <Row equal-heights justify="center" gutter={[32, 24]}>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://wallpaperaccess.com/full/428690.jpg"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <Link to="/details-item">
+                    <Card className="card">
+                      <div className="cardImg">
+                        <img src="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"></img>
+                      </div>
+                      <div className="cardContent">
+                        <h4 className="nameToken">
+                          Title11111111111111111111111111111111111111
+                        </h4>
+                        <div>
+                          <h4>Price</h4>
+                          <div>
+                            <img
+                              alt="ETH on Mumbai"
+                              style={{ width: 14 }}
+                              src="https://storage.opensea.io/files/265128aa51521c90f7905e5a43dcb456_new.svg"
+                            ></img>
+                            <span> 0.05 </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
           </TabPane>
         </Tabs>
       </div>

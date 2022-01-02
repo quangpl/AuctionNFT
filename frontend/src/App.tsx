@@ -12,6 +12,7 @@ import Login from './components/page/Login';
 import Register from './components/page/Register';
 import Profile from './components/page/Profile';
 import Navbar from './components/Navbar';
+import FooterPage from './components/page/FooterPage';
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/profile" element={<Profile/>}>
           </Route>
         </Routes>
+        <FooterPage/>
       </BrowserRouter>
     );
   }

@@ -37,7 +37,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          EPIC
+          EzGroup
           <i className='fab fa-firstdraft' />
         </Link>
         
@@ -45,7 +45,7 @@ function Navbar() {
         {React.createElement(click ? MenuUnfoldOutlined : MenuFoldOutlined)}
         </div>
         <ul  className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
+          <li className='nav-item' onClick={closeMobileMenu}>
             <Link to='/' className='nav-links' >
               Home
             </Link>
@@ -54,6 +54,7 @@ function Navbar() {
             className='nav-item'
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            onClick={closeMobileMenu}
           >
             <Link
               to='/create-item'
