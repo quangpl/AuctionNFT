@@ -1,42 +1,32 @@
-import React, {Component, Fragment } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import "./App.css";
 import "antd/dist/antd.css";
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Home from "../src/components/page/home"
-import HeaderPage from './components/HeaderPage';
-import WalletPage from './components/page/WalletPage';
-import CreateItemPage from './components/page/CreateItemPage';
-import DetailsItem from './components/page/DetailsItem';
-import Login from './components/page/Login';
-import Register from './components/page/Register';
-import Profile from './components/page/Profile';
-import Navbar from './components/Navbar';
-import FooterPage from './components/page/FooterPage';
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import WalletPage from "./page/WalletPage";
+import CreateItemPage from "./page/CreateItemPage";
+import Login from "./page/Login";
+import Register from "./page/Register";
+import Profile from "./page/Profile";
+import Navbar from "./components/Navbar";
+import FooterPage from "./page/FooterPage";
+import { Home } from "./page/Home";
+import { DetailsItem } from "./page/DetailsItem";
 
 class App extends Component {
-  render(){
+  render() {
     return (
       <BrowserRouter>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>}>
-          </Route>
-          <Route path="/wallet" element={<WalletPage/>}>
-          </Route>
-          <Route path="/create-item" element={<CreateItemPage/>}>
-          </Route>
-          <Route path="/details-item" element={<DetailsItem/>}>
-          </Route>
-          <Route path="/login" element={<Login/>}>
-          </Route>
-          <Route path="/register" element={<Register/>}>
-          </Route>
-          <Route path="/profile" element={<Profile/>}>
-          </Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/wallet" element={<WalletPage />}></Route>
+          <Route path="/create-item" element={<CreateItemPage />}></Route>
+          <Route path="/details-item" element={<DetailsItem />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Routes>
-        <FooterPage/>
+        <FooterPage />
       </BrowserRouter>
     );
   }
