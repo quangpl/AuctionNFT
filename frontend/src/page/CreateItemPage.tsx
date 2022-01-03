@@ -43,9 +43,7 @@ export const CreateItemPage = () => {
               uploading company data or other band files
             </p>
           </Dragger>
-          <br />
-          <input type="file"/>
-          <br />
+          
           <label>Title</label>
           <Input
             placeholder="Title"
