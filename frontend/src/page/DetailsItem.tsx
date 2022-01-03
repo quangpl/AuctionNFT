@@ -44,19 +44,19 @@ export const DetailsItem = () => {
               <Row gutter={[48, 24]}>
                 <Col span={12} xs={24}>
                   <h1 style={{ fontSize: 36 }}>{data.title}</h1>
-                  <p>{data.description}</p>
+                  <p style={{color:'#a2a2a2'}}>{data.description}</p>
                 </Col>
                 <Col span={4} xs={24} md={8} xl={8}>
                   <h6 style={{ fontSize: 14 }}>Seller</h6>
                   <Link to="/">
-                    <Avatar src="https://joeschmoe.io/api/v1/random" />
+                    <Avatar src="https://joeschmoe.io/api/v1/random" style={{border:'1px solid #212428',paddingRight:5}}/>
                     {data.seller}
                   </Link>
                 </Col>
                 <Col span={4} xs={24} md={8} xl={8}>
                   <h6 style={{ fontSize: 14 }}>Owner</h6>
                   <Link to="/">
-                    <Avatar src="https://joeschmoe.io/api/v1/random" />
+                    <Avatar src="https://joeschmoe.io/api/v1/random" style={{border:'1px solid #212428',paddingRight:5}}/>
                     {data.owner}
                   </Link>
                 </Col>

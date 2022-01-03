@@ -4,14 +4,12 @@ import { Card, Col, Row, Image, Button } from "antd";
 import "../css/footer.css";
 import { Link } from "react-router-dom";
 const { Meta } = Card;
-class FooterPage extends Component {
-  render() {
+export const FooterPage = () => {
+
     return (
       <div className="footer">
        
       </div>
     );
   }
-}
 
-export default FooterPage;

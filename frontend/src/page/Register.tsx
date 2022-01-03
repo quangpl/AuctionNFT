@@ -3,8 +3,8 @@ import { Form, Input, Button, Checkbox, Divider, Card, Row, Col } from "antd";
 import "../css/register.css";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-class Register extends Component {
-  render() {
+export const Register = () => {
+
     const layout = {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
@@ -25,18 +25,21 @@ class Register extends Component {
         </Divider>
         <Row justify="center" align="middle">
           <Col span={8} xs={20} md={8} xl={8}>
-          
             <Card
               className="form-register"
               style={{
                 backgroundColor: "rgba(255, 255, 255, .01)",
+                marginTop: 30,
               }}
             >
-              <h1 style={{ color: "white" }}>
-                Don't have an account? Register now.
-              </h1>
-              <Form labelCol={{ span: 24, offset:0 }} labelAlign="left">
-                <Form.Item 
+              <Divider orientation="center">
+                <h2 style={{ color: "white", margin: 20 }}>
+                  Don't have an account? Register now.
+                </h2>
+              </Divider>
+
+              <Form labelCol={{ span: 24, offset: 0 }} labelAlign="left">
+                <Form.Item
                   name={["user", "name"]}
                   label="Name"
                   rules={[{ required: true }]}
@@ -103,7 +106,7 @@ class Register extends Component {
                 >
                   <Input.Password />
                 </Form.Item>
-                <Form.Item >
+                <Form.Item>
                   <Button type="primary" htmlType="submit">
                     Submit
                   </Button>
@@ -115,6 +118,4 @@ class Register extends Component {
       </div>
     );
   }
-}
 
-export default Register;

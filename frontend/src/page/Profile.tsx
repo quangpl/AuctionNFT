@@ -31,7 +31,7 @@ const Profile = () => {
         orientation="center"
         style={{
           backgroundColor: "rgba(255, 255, 255, .01)",
-
+          paddingTop: 30,
           paddingBottom: 30,
           fontSize: 30,
           borderBottom: "solid 1px  rgba(255, 255, 255, .1)",
@@ -47,73 +47,98 @@ const Profile = () => {
         <span id="idMetamask">
           DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME
         </span>
-        <br />
         <button id="btnCopy" onClick={() => changeText("Copied")}>
           {buttonText}
         </button>
       </Divider>
       <div className="card-container">
-        <Tabs defaultActiveKey="1" centered type="card">
+        <Tabs defaultActiveKey="1" centered type="card" style={{padding:10}}>
           <TabPane tab="On Sale" key="1">
             <div className="site-card-wrapper">
               <Row equal-heights justify="center" gutter={[32, 24]}>
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
               </Row>
             </div>
           </TabPane>
           <TabPane tab="Owned" key="2">
             <div className="site-card-wrapper">
               <Row equal-heights justify="center" gutter={[32, 24]}>
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
+              <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+
               </Row>
             </div>
           </TabPane>
           <TabPane tab="Created" key="3">
             <div className="site-card-wrapper">
               <Row equal-heights justify="center" gutter={[32, 24]}>
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
-                <NFTItem
-                  title="Moutain view"
-                  price={0.03}
-                  imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
-                />
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
+                <Col span={6} xs={24} md={6} xl={6}>
+                  <NFTItem
+                    title="Moutain view"
+                    price={0.03}
+                    imageUrl="https://lh3.googleusercontent.com/3P1A6WYErdyp3hlUypmrdSCazuuUc7NP02LdYn3K5CrskRORVFE88RgvobsaAHLyvpB6tYjV8s8j2y8xA75G-H89JAsB2RwcjxBrXg=w313"
+                  />
+                </Col>
               </Row>
             </div>
           </TabPane>

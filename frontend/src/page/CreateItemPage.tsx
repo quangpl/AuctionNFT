@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Card, Col, Divider, Row, Upload, Input, Button } from "antd";
 import "../css/create-item.css";
 import { Link } from "react-router-dom";
@@ -10,8 +10,12 @@ import {
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
-class CreateItemPage extends Component {
-  render() {
+export const CreateItemPage = () => {
+  const [fileUrl, setFileUrl] = useState(null)
+  async function onChange(e:any) {
+    const file = e.target.files[0]
+    
+  }
     return (
       <div className="create">
         <Divider
@@ -19,7 +23,7 @@ class CreateItemPage extends Component {
           style={{
             backgroundColor: "rgba(255, 255, 255, .01)",
             padding: 70,
-            fontSize: 30,
+            fontSize: 20,
             borderBottom: "solid 1px  rgba(255, 255, 255, .1)",
           }}
         >
@@ -39,6 +43,9 @@ class CreateItemPage extends Component {
               uploading company data or other band files
             </p>
           </Dragger>
+          <br />
+          <input type="file"/>
+          <br />
           <label>Title</label>
           <Input
             placeholder="Title"
@@ -80,6 +87,6 @@ class CreateItemPage extends Component {
       </div>
     );
   }
-}
+
 
 export default CreateItemPage;

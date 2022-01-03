@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
 import Dropdown from './Dropdown';
-import { Menu, Button } from 'antd';
+import { Avatar, Button } from 'antd';
 import {
    
     MenuUnfoldOutlined,
@@ -40,8 +40,9 @@ function Navbar() {
           EzGroup
           <i className='fab fa-firstdraft' />
         </Link>
-        
+       
         <div className='menu-icon'  onClick={handleClick}>
+        {/* <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf',marginRight:10, marginBottom:10 }}>U</Avatar> */}
         {React.createElement(click ? MenuUnfoldOutlined : MenuFoldOutlined)}
         </div>
         <ul  className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -83,15 +84,15 @@ function Navbar() {
               Login
             </Link>
           </li>
-          <li>
-            <Link
-              to='/register'
-              className='nav-links-mobile'
-              onClick={closeMobileMenu}
-            >
-              Register
-            </Link>
+          <li  className='nav-links-mobile'> 
+            
           </li>
+          <li  className='nav-links-mobile'> 
+            
+          </li><li  className='nav-links-mobile'> 
+            
+            </li>
+            
         </ul>
         <Button />
       </nav>
