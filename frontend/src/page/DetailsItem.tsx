@@ -49,14 +49,14 @@ export const DetailsItem = () => {
                 <Col span={4} xs={24} md={8} xl={8}>
                   <h6 style={{ fontSize: 14 }}>Seller</h6>
                   <Link to="/">
-                    <Avatar src="https://joeschmoe.io/api/v1/random" style={{border:'1px solid #212428',paddingRight:5}}/>
+                    <Avatar src="https://gigaland.io/images/author/author-1.jpg" style={{border:'1px solid #212428',marginRight:5}}/>
                     {data.seller}
                   </Link>
                 </Col>
                 <Col span={4} xs={24} md={8} xl={8}>
                   <h6 style={{ fontSize: 14 }}>Owner</h6>
                   <Link to="/">
-                    <Avatar src="https://joeschmoe.io/api/v1/random" style={{border:'1px solid #212428',paddingRight:5}}/>
+                    <Avatar src="https://gigaland.io/images/collections/coll-thumbnail-1.jpg" style={{border:'1px solid #212428',marginRight:5}}/>
                     {data.owner}
                   </Link>
                 </Col>
