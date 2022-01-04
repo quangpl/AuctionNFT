@@ -14,8 +14,8 @@ index.get("/", controller.index);
 index.get("/users", controller.getAllUsers)
 index.post("/user", controller.createUser)
 index.get("/user/:id", controller.getUserById)
-index.patch("/user/:id", controller.updateUserById)
-index.delete("/user/:id", controller.deleteUserById)
+index.patch("/user/:id", requireJwtMiddleware, controller.updateUserById)
+index.delete("/user/:id", requireJwtMiddleware, controller.deleteUserById)
 
 /*
 *  Login
@@ -33,7 +33,8 @@ index.get("/file/:filename", requireJwtMiddleware, controller.renderImage)
 *  CRUD Item
 */
 index.get("/items", controller.getAllItems)
-index.post("/item", controller.createItem)
-index.get("/item/:id", controller.getItemById)
-index.patch("/item/:id", controller.updateItemById)
-index.delete("/item/:id", controller.deleteItemById)
+index.get("/items/:userid", requireJwtMiddleware, controller.getAllItemsByUserId)
+index.post("/item", requireJwtMiddleware, controller.createItem)
+index.get("/item/:id", requireJwtMiddleware, controller.getItemById)
+index.patch("/item/:id", requireJwtMiddleware, controller.updateItemById)
+index.delete("/item/:id", requireJwtMiddleware, controller.deleteItemById)

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import {User} from "../models/User";
+import { User } from "../models/User";
 import { Image } from "../models/Image";
+import { Item } from "../models/Item";
 import { encodeSession } from "../helpers/jwtHelpers";
 import { isEmpty } from "lodash";
 import mongoose from "mongoose"
@@ -26,36 +27,43 @@ export const index = async (req: Request, res: Response): Promise<void> => {
 
 
 export const getAllUsers = async (req: Request, res: Response): Promise<void> => {
-  const users: any = await User.find()
-  if(!isEmpty(users)) {
+  try {
+    const users: any = await User.find({}, {password: 0})
     res.status(200).json({
       data: users
     })
-  } else {
-    res.status(401).json({
-      message: "User not found"
+  } catch {
+    res.status(500).json({
+      message: "Something wrong"
     })
   }
-  // res.render("test", {data: users})
 };
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
-  const user: any = await User.create({
-    password: req.body.password,
-    email: req.body.email,
-    address: req.body.address,
-    wallet: req.body.wallet
-  })
-  res.status(200).json({
-    message: "User created",
-    data: user
-  })
+  try {
+    const user: any = await User.create({
+      password: req.body.password,
+      email: req.body.email,
+      address: req.body.address,
+      wallet: req.body.wallet
+    })
+    delete user["password"];
+
+    res.status(200).json({
+      message: "User created",
+      data: user
+    })
+  } catch {
+    res.status(500).json({
+      message: "Something wrong"
+    })
+  }
   // res.render("test", {data: user})
 };
 
 export const getUserById = async (req: Request, res: Response): Promise<void> => {
   try {
-    const user: any = await User.findById(req.params.id)
+    const user: any = await User.findById(req.params.id, {password: 0})
     if(!isEmpty(user)) {
     // res.render("test", {data: user})
     res.status(200).json({
@@ -86,6 +94,7 @@ export const updateUserById = async (req: Request, res: Response): Promise<void>
       if(req.body.address) user.address = req.body.address
 
       user.save();
+      delete user["password"];
 
       res.status(200).json({
         message: "User updated",
@@ -218,6 +227,10 @@ export const renderImage = async (req: Request, res: Response): Promise<void> =>
 
 export const getAllItems = async (req: Request, res: Response): Promise<void> => {
   try {
+    const items: any = await Item.find()
+    res.status(200).json({
+      data: items
+    })
 
   } catch {
     res.status(500).json({
@@ -228,7 +241,49 @@ export const getAllItems = async (req: Request, res: Response): Promise<void> =>
 
 export const createItem = async (req: Request, res: Response): Promise<void> => {
   try {
+    const user:any = await User.findById(req.body.userId)
+    if(isEmpty(user)) {
+      res.status(401).json({
+        message: "User Not Found"
+      })
+      return
+    }
 
+    let input: any  = {
+      name: req.body.name,
+      user: user._id,
+      description: req.body.description,
+      price: req.body.price,
+    }
+
+    if(!isEmpty(req.body.image)) {
+      const storedImage = await Image.findOne({userId: user._id, image: req.body.image})
+      if(isEmpty(storedImage)) {
+        res.status(401).json({
+          message: "Image not found"
+        })
+        return
+      }
+
+      input.image = storedImage._id
+
+    } else {
+      if(isEmpty(req.body.imageUrl)) {
+        res.status(401).json({
+          message: "There is no content for this item"
+        })
+        return
+      }
+
+      input.imageUrl = req.body.imageUrl
+    }
+
+    const item: any = await Item.create(input)
+
+    res.status(200).json({
+      message: "Item created",
+      data: item
+    })
   } catch {
     res.status(500).json({
       message: "Something wrong"
@@ -238,7 +293,11 @@ export const createItem = async (req: Request, res: Response): Promise<void> => 
 
 export const getItemById = async (req: Request, res: Response): Promise<void> => {
   try {
+    const item: any = await Item.findById(req.params.id)
 
+    res.status(200).json({
+      data: item
+    })
   } catch {
     res.status(500).json({
       message: "Something wrong"
@@ -248,7 +307,36 @@ export const getItemById = async (req: Request, res: Response): Promise<void> =>
 
 export const updateItemById = async (req: Request, res: Response): Promise<void> => {
   try {
+    const item: any = await Item.findById(req.params.id)
 
+    if(isEmpty(item)) {
+      res.status(401).json({
+        message: "Item not found"
+      })
+      return
+    }
+
+    if(req.body.name) item.name = req.body.name
+    if(req.body.price) item.price = req.body.price
+    if(req.body.description) item.description = req.body.description
+    if(req.body.imageUrl) item.imageUrl = req.body.imageUrl
+    if(req.body.image) {
+      const storedImage = await Image.findById(req.body.image)
+      if(isEmpty(storedImage)) {
+        res.status(401).json({
+          message: "Image not found"
+        })
+        return
+      }
+
+      item.image = storedImage._id
+    }
+
+    item.save()
+    res.status(200).json({
+      message: "Item updated",
+      data: item
+    })
   } catch {
     res.status(500).json({
       message: "Something wrong"
@@ -258,7 +346,33 @@ export const updateItemById = async (req: Request, res: Response): Promise<void>
 
 export const deleteItemById = async (req: Request, res: Response): Promise<void> => {
   try {
+    await Item.findByIdAndDelete(req.params.id)
+    res.status(200).json({
+      message: "Delete OK",
+    })
 
+  } catch {
+    res.status(500).json({
+      message: "Something wrong"
+    })
+  }
+}
+
+export const getAllItemsByUserId = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user:any = await User.findById(req.params.userid)
+    if(isEmpty(user)) {
+      res.status(401).json({
+        message: "User Not Found"
+      })
+      return
+    }
+
+    const items: any = await Item.find({userId: user._id})
+
+    res.status(200).json({
+      data: items
+    })
   } catch {
     res.status(500).json({
       message: "Something wrong"
