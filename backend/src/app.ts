@@ -2,7 +2,6 @@ import express from "express";
 import logger from "morgan";
 import * as path from "path";
 import mongoose from 'mongoose';
-
 require('dotenv').config()
 import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
 

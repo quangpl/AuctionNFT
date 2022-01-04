@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import {User} from "../models/User";
-import { requireJwtMiddleware } from "../middlewares/authentication";
+import { Image } from "../models/Image";
 import { encodeSession } from "../helpers/jwtHelpers";
 import { isEmpty } from "lodash";
 /**
@@ -119,6 +119,32 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       })
     }
 
+  } catch {
+    res.status(500).json({
+      message: "Something wrong"
+    })
+  }
+}
+
+export const uploadImage = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user:any = await User.findById(req.body.userId)
+    if(isEmpty(user)) {
+      res.status(401).json({
+        message: "User Not Found"
+      })
+    }
+
+    const image: any = await Image.create({
+      userId: user._id,
+      image: req.file.id,
+      filename: req.file.filename
+    })
+
+    res.status(200).json({
+      message: "Upload success",
+      image: image
+    })
   } catch {
     res.status(500).json({
       message: "Something wrong"
