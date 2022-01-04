@@ -4,15 +4,16 @@ import * as path from "path";
 import { GridFsStorage } from "multer-gridfs-storage";
 import multer from "multer"
 
-  export function getUploadImageStream() {
-  const connect = mongoose.createConnection(process.env.MONGO_URI)
+export function getUploadImageStream() {
   let gfs;
-  connect.once('open', () => {
-      console.log("Created stream to upload image")
-      gfs = new mongoose.mongo.GridFSBucket(connect.db, {
-          bucketName: "uploads"
-      });
-  });
+  mongoose.connection.on("connected", () => {
+    console.log("Created stream to upload image")
+    var db = mongoose.connections[0].db;
+    gfs = new mongoose.mongo.GridFSBucket(db, {
+      bucketName: "uploads"
+    });
+  })
+  console.log(gfs)
   return gfs;
 }
 
@@ -20,8 +21,6 @@ export function getGridFsInstance() {
   /*
     GridFs Configuration
   */
-  // const multer = require("multer");
-
   // create storage engine
   const storage = new GridFsStorage({
       url: process.env.MONGO_URI,
@@ -31,7 +30,7 @@ export function getGridFsInstance() {
                   if (err) {
                       return reject(err);
                   }
-                  const filename = buf.toString('hex') + path.extname(file.originalname);
+                  const filename = buf.toString('hex') + "_" + Date.now() + path.extname(file.originalname);
                   const fileInfo = {
                       filename: filename,
                       bucketName: 'uploads'
@@ -42,7 +41,7 @@ export function getGridFsInstance() {
       }
   });
 
-  const upload = multer({ storage });
+  const upload = multer({ storage: storage });
   return upload;
 }
 
