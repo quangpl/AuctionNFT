@@ -3,7 +3,7 @@
 .ant-form-item-label > label{
     color: white;
 }
-.ant-input{
+.ant-input, .ant-input-password{
     border-radius: 30px;
 }
 .ant-btn-primary{

@@ -2,7 +2,7 @@ import { Col, Card } from "antd";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { INFTDetail } from "../types";
-
+import "../css/card.css"
 type Props = {
   imageUrl: string;
   title: string;
@@ -12,7 +12,8 @@ export const NFTItem: React.FC<Props> = (props: Props) => {
   const navigate = useNavigate();
   return (
     <Card
-      className="card"
+      className="card" hoverable
+      cover={<img alt="example" src={props.imageUrl} />}
       onClick={() => {
         const fakeItem: INFTDetail = {
           title: "Mountain view best seller",
@@ -25,21 +26,20 @@ export const NFTItem: React.FC<Props> = (props: Props) => {
           owner: "wallet cua Hoang",
           price: 0.5,
           imageUrl:
-            "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL3N1bi11cGRhdGUtMS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI5MH19fQ==",
+            "https://gigaland.io/images/items/big-4.jpg",
         };
         navigate("/details-item", {
           state: fakeItem,
         });
+        
       }}
     >
-      <div className="cardImg">
-        <img alt="" src={props.imageUrl}></img>
-      </div>
+      
       <div className="cardContent">
         <h4 className="nameToken">{props.title}</h4>
-        <div>
+        <div className="priceToke">
           <h4>Price</h4>
-          <div>
+          <div >
             <img
               alt="ETH on Mumbai"
               style={{ width: 14 }}

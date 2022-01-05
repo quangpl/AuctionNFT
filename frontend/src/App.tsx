@@ -1,13 +1,12 @@
 import "./App.css";
 import "antd/dist/antd.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import WalletPage from "./page/WalletPage";
+import { WalletPage } from "./page/WalletPage";
 import { CreateItemPage } from "./page/CreateItemPage";
-import Login from "./page/Login";
-import Register from "./page/Register";
+import { Login } from "./page/Login";
+import { Register } from "./page/Register";
 import Profile from "./page/Profile";
 import Navbar from "./components/Navbar";
-import FooterPage from "./page/FooterPage";
 import { Home } from "./page/Home";
 import { DetailsItem } from "./page/DetailsItem";
 import { useEffect } from "react";
@@ -17,6 +16,7 @@ import axios from "axios";
 import { getWeb3 } from "./web3";
 import { useAppContext } from "./context/app/context";
 import { setNFTAccount, setNFTContract } from "./context/app/actions";
+import { FooterPage } from "./page/FooterPage";
 
 const ArtMarketplaceToken: any = ArtMarketplace;
 const ArtToken: any = ArtTokens;

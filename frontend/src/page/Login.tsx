@@ -3,9 +3,8 @@ import { Form, Input, Button, Checkbox, Divider, Card, Row, Col } from "antd";
 import "../css/login.css";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-class Login extends Component {
-  render() {
-    
+export const Login = () => {
+
     return (
       <div className="login">
         <Divider
@@ -74,6 +73,4 @@ class Login extends Component {
       </div>
     );
   }
-}
 
-export default Login;

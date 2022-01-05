@@ -16,3 +16,6 @@
 a:hover{
     color: white;
 }
+.ant-image-img{
+    border-radius: 3px;
+}

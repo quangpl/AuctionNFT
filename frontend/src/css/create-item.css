@@ -1,6 +1,12 @@
-.create{
+/* .create{
     padding-top: 50px;
     
+} */
+.ant-divider-horizontal.ant-divider-with-text{
+    margin: 0;
+}
+.ant-divider-inner-text{
+    padding: 0;
 }
 .create-item{
     width: 60%;

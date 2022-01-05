@@ -1,12 +1,18 @@
-.login{
+/* .login{
     padding-top: 50px;
     background-color: #212428;
     
-}
+} */
 .form-login{
     border: 1px solid #a2a2a2;
+    margin-top: 30px;
 }
-
+.ant-input-affix-wrapper{
+    border-radius: 20px;
+}
+.ant-input{
+    border-radius: 0;
+}
 .login-form-forgot {
 float: right;
 }
