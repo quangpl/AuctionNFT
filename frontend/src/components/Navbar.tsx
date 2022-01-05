@@ -10,6 +10,8 @@ import {
     MenuFoldOutlined,
     
   } from '@ant-design/icons';
+import logo from "../img/nft.png";
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -37,8 +39,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          EzGroup
-          <i className='fab fa-firstdraft' />
+       <img src={logo} width={50} height={50}/>
         </Link>
        
         <div className='menu-icon'  onClick={handleClick}>

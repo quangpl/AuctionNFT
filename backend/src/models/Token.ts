@@ -31,4 +31,4 @@ export type DecodeResult =
     type: "invalid-token";
   };
 
- export type ExpirationStatus = "expired" | "active" | "grace";
+ export type ExpirationStatus = "expired" | "active" | "grace"

@@ -12,7 +12,6 @@ import { DetailsItem } from "./page/DetailsItem";
 import { useEffect } from "react";
 import ArtMarketplace from "./contracts/ArtMarketplace.json";
 import ArtTokens from "./contracts/ArtToken.json";
-import axios from "axios";
 import { getWeb3 } from "./web3";
 import { useAppContext } from "./context/app/context";
 import { setNFTAccount, setNFTContract } from "./context/app/actions";
@@ -130,7 +129,7 @@ export const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/wallet" element={<WalletPage />}></Route>
         <Route path="/create-item" element={<CreateItemPage />}></Route>
-        <Route path="/details-item" element={<DetailsItem />}></Route>
+        <Route path="/details-item/:id" element={<DetailsItem />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/profile" element={<Profile />}></Route>

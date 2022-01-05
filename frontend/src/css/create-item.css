@@ -2,33 +2,32 @@
     padding-top: 50px;
     
 } */
-.ant-divider-horizontal.ant-divider-with-text{
-    margin: 0;
+.ant-divider-horizontal.ant-divider-with-text {
+  margin: 0;
 }
-.ant-divider-inner-text{
-    padding: 0;
+.ant-divider-inner-text {
+  padding: 0;
 }
-.create-item{
-    width: 60%;
-    margin: auto;
-    color: white;
-    padding-bottom: 50px;
+.create-item {
+  width: 60%;
+  margin: auto;
+  color: white;
+  padding-top: 20px;
 }
-.create-item label{
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+.create-item label {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
-.ant-upload.ant-upload-drag{
-    background: none;
-    padding: 50px;
-    border-radius: 10px;
-    border: dashed 3px #dddddd;
-    text-align: center;
-    
+.ant-upload.ant-upload-drag {
+  background: none;
+  padding: 50px;
+  border-radius: 10px;
+  border: dashed 3px #dddddd;
+  text-align: center;
 }
-.ant-upload.ant-upload-drag:not(.ant-upload-disabled):hover{
-    border-color: #dddddd;
+.ant-upload.ant-upload-drag:not(.ant-upload-disabled):hover {
+  border-color: #dddddd;
 }

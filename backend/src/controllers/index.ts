@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
-import { requireJwtMiddleware } from "../middlewares/authentication";
 import { encodeSession } from "../helpers/jwtHelpers";
 import { isEmpty } from "lodash";
 /**

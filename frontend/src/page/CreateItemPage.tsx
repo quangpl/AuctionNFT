@@ -9,23 +9,27 @@ const { TextArea } = Input;
 const { Dragger } = Upload;
 
 export const CreateItemPage = () => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [file, setFile] = useState<any>();
   const appContext = useAppContext();
-  console.log(appContext.state);
+  const [item, setItem] = useState<{
+    name: string;
+    price: number;
+    description: string;
+    seller: string;
+  }>({
+    name: "",
+    price: 0,
+    description: "",
+    seller: appContext?.state.account,
+  });
+  const [file, setFile] = useState<any>();
   async function createNFT() {
-    const { title, description } = {
-      title: "test",
-      description: "description test luon",
-    };
-
-    console.log("title: " + title);
+    console.log(item)
     const artTokenContract = appContext.state.nftContract;
-
     const data = new FormData();
-    data.append("name", title);
-    data.append("description", description);
+    data.append("name", item?.name as string);
+    data.append("price", `${item?.price}` as string);
+    data.append("description", item?.description as string);
+    data.append("seller", appContext.state.account);
 
     if (file) {
       data.append("img", file as any);
@@ -37,14 +41,13 @@ export const CreateItemPage = () => {
         .totalSupply()
         .call()) as any;
       data.append("tokenId", totalSupply + 1);
-
       const response = await axios.post(`${SERVER_URL}/tokens`, data, {
         headers: {
           "Content-Type": `multipart/form-data;`,
         },
       });
-      console.log(response);
-      mint(response.data.message);
+      console.log(response.data);
+      mint(response.data.url);
     } catch (error) {
       console.log(error);
       // error.response.data
@@ -57,7 +60,7 @@ export const CreateItemPage = () => {
       const artTokenContract = appContext.state.nftContract;
       const receipt = await artTokenContract.methods
         .mint(tokenMetadataURL)
-        .send({ from: appContext.state.account , gas: 6721975});
+        .send({ from: appContext.state.account, gas: 6721975 });
       console.log(receipt);
       console.log(receipt.events.Transfer.returnValues.tokenId);
       // setItems((items) => [
@@ -80,9 +83,6 @@ export const CreateItemPage = () => {
       alert("Error while minting!");
     }
   }
-
-
-  
 
   return (
     <div className="create">
@@ -113,10 +113,23 @@ export const CreateItemPage = () => {
             console.log(e);
           }}
         >
-          Click
+          <Button
+            style={{
+              marginLeft: 20,
+            }}
+            type="primary"
+          >
+            Upload
+          </Button>
         </Upload>
         <label>Title</label>
         <Input
+          onChange={(e) => {
+            setItem((prevState) => ({
+              ...prevState,
+              name: e.target.value,
+            }));
+          }}
           placeholder="Title"
           style={{
             color: "white",
@@ -129,6 +142,12 @@ export const CreateItemPage = () => {
         />
         <label>Description</label>
         <TextArea
+          onChange={(e) => {
+            setItem((prevState) => ({
+              ...prevState,
+              description: e.target.value,
+            }));
+          }}
           placeholder="Description..."
           rows={4}
           style={{
@@ -143,6 +162,13 @@ export const CreateItemPage = () => {
         <label>Price</label>
         <Input
           placeholder="Price"
+          onChange={(e) => {
+            setItem((prevState) => ({
+              ...prevState,
+              price: parseInt(e.target.value, 10),
+            }));
+          }}
+          type="number"
           style={{
             color: "white",
             background: "none",
