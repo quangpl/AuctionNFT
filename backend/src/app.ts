@@ -20,14 +20,13 @@ app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "pug");
 
 app.use(logger("dev"));
-// mongoose
-//     .connect(process.env.MONGO_URI || "mongodb://localhost:27017/nft")
-//     .then(() => {
-//         console.log("Connect to database");
-//     });
+mongoose
+    .connect(process.env.MONGO_URI || "mongodb://localhost:27017/nft")
+    .then(() => {
+        console.log("Connect to database");
+    });
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
-// app.use("/", index);
+app.use('/images', express.static('imgs'));
 app.get("/", (req, res) => {
     res.json({
         msg: "Hello World",
