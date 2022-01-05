@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 // import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
-import Dropdown from './Dropdown';
-import { Avatar, Button } from 'antd';
+import { Button } from 'antd';
 import {
    
     MenuUnfoldOutlined,
@@ -74,15 +73,6 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               Profile
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link
-              to='/login'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Login
             </Link>
           </li>
           <li  className='nav-links-mobile'> 

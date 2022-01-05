@@ -73,7 +73,7 @@ contract ArtMarketplace {
     payable 
     external {
       require(msg.value >= itemsForSale[id].price, "Not enough funds sent");
-      require(msg.sender != itemsForSale[id].seller);
+      require(msg.sender != itemsForSale[id].seller,"duplicate seller and buyer");
 
       itemsForSale[id].isSold = true;
       activeItems[itemsForSale[id].tokenId] = false;
@@ -87,7 +87,3 @@ contract ArtMarketplace {
     return itemsForSale.length;
   }
 }
-
-//TODO:
-// - don't support bidding
-// - the user can't withdraw the item

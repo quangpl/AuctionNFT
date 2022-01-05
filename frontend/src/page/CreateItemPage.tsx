@@ -1,15 +1,18 @@
 import { Component, useState } from "react";
-import { Divider, Upload, Input, Button } from "antd";
+import { Divider, Upload, Input, Button, message } from "antd";
 import "../css/create-item.css";
 import { InboxOutlined } from "@ant-design/icons";
 import { useAppContext } from "../context/app/context";
 import axios from "axios";
 import { SERVER_URL } from "../constants";
+import { useNavigate } from "react-router-dom";
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
 export const CreateItemPage = () => {
+  const navigate = useNavigate();
   const appContext = useAppContext();
+  
   const [item, setItem] = useState<{
     name: string;
     price: number;
@@ -22,25 +25,28 @@ export const CreateItemPage = () => {
     seller: appContext?.state.account,
   });
   const [file, setFile] = useState<any>();
+  const [loading, setLoading] = useState(false);
+
   async function createNFT() {
-    console.log(item)
+    setLoading(true);
+    console.log(item);
     const artTokenContract = appContext.state.nftContract;
     const data = new FormData();
     data.append("name", item?.name as string);
     data.append("price", `${item?.price}` as string);
     data.append("description", item?.description as string);
     data.append("seller", appContext.state.account);
-
+    console.log(appContext.state.account)
     if (file) {
       data.append("img", file as any);
       console.log("slectedFile: ", file);
     }
     console.log(artTokenContract);
     try {
-      const totalSupply = (await artTokenContract.methods
-        .totalSupply()
-        .call()) as any;
-      data.append("tokenId", totalSupply + 1);
+      const totalSupply = await artTokenContract.methods.totalSupply().call();
+      console.log(totalSupply);
+      const numSummply: number = parseInt(totalSupply, 10);
+      data.append("tokenId", (numSummply + 1) as any);
       const response = await axios.post(`${SERVER_URL}/tokens`, data, {
         headers: {
           "Content-Type": `multipart/form-data;`,
@@ -77,10 +83,13 @@ export const CreateItemPage = () => {
       //   },
       // ]);
       console.log("Mint success");
+      navigate("/")
       // history.push('/');
     } catch (error) {
       console.error("Error, minting: ", error);
-      alert("Error while minting!");
+      message.error("Error while minting!");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -180,6 +189,7 @@ export const CreateItemPage = () => {
         />
         <Button
           type="primary"
+          loading={loading}
           onClick={() => {
             createNFT();
           }}

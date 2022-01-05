@@ -13,7 +13,8 @@ export const Home = () => {
   async function getNfts() {
     const nfts = await axios.get(`${SERVER_URL}/tokens`);
     setItems(nfts.data);
-    console.log(nfts.data);
+  
+    
   }
   useEffect(() => {
     getNfts();
@@ -35,6 +36,7 @@ export const Home = () => {
             return (
               <Col span={6} xs={24} md={6} xl={6}>
                 <NFTItem
+                  status={item.status}
                   id={item._id as string}
                   title={item.name}
                   price={item.price}

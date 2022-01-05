@@ -10,8 +10,15 @@ require("dotenv").config();
 import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
 
 // Routes
-import { index } from "./routes/index";
-import { createToken, getAllTokens, getTokenById } from "./controllers/tokens";
+import {
+    createToken,
+    getAllTokens,
+    getTokenById,
+    getTokenByTokenId,
+    getTokensByAddress,
+    updateItem,
+    updateStatus,
+} from "./controllers/tokens";
 import { upload } from "./upload";
 // Create Express server
 export const app = express();
@@ -36,6 +43,11 @@ app.get("/", (req, res) => {
     });
 });
 app.get("/tokens/:tokenID", getTokenById);
+app.get("/tokens/user/:address", getTokensByAddress);
+app.post("/tokens/update", updateItem);
+app.post("/tokens/update-status", updateStatus);
+app.get("/tokens/tokenId/:tokenID", getTokenByTokenId);
+
 app.get("/tokens", getAllTokens);
 
 app.post("/tokens", upload.single("img"), createToken);

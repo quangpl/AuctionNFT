@@ -3,11 +3,13 @@ import { AppAction, AppActions } from "./actions";
 export interface IAppState {
   nftContract: any;
   account: any;
+  marketContract: any;
 }
 
 export const initialAppState = {
   nftContract: undefined,
   account: undefined,
+  marketContract: undefined,
 };
 
 export const appReducer = (state: IAppState, action: AppAction) => {
@@ -24,6 +26,13 @@ export const appReducer = (state: IAppState, action: AppAction) => {
         ...state,
         ...{
           account: action.account,
+        },
+      };
+    case AppActions.SET_MARKET_CONTRACT:
+      return {
+        ...state,
+        ...{
+          marketContract: action.contract,
         },
       };
     default:

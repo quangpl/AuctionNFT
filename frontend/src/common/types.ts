@@ -5,4 +5,6 @@ export interface INft {
   seller?: string;
   _id?: string;
   imageUrl?: string;
+  tokenId: number;
+  status: number;
 }

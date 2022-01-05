@@ -1,14 +1,6 @@
-import React, { Component } from "react";
-import { Form, Input, Button, Checkbox, Divider, Card, Row, Col } from "antd";
+import { Form, Input, Button, Divider, Card, Row, Col } from "antd";
 import "../css/register.css";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 export const Register = () => {
-
-    const layout = {
-      labelCol: { span: 8 },
-      wrapperCol: { span: 16 },
-    };
 
     return (
       <div className="register">
